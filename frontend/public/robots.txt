@@ -1,0 +1,12 @@
+# robots.txt for Product Trust
+# Replace the Sitemap URL with your production domain before deploying.
+
+User-agent: *
+Allow: /
+
+# Block any private or admin paths if needed (adjust as appropriate)
+Disallow: /admin/
+Disallow: /api/
+
+# Sitemap (update to your real domain)
+Sitemap: https://product-trust.onrender.com/sitemap.xml
