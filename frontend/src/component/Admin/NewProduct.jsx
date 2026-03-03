@@ -58,17 +58,12 @@ function NewProduct() {
   };
 
   const categories = [
-    "Cricket Kits",
-    "Batting Gloves",
-    "Batting Pads",
-    "Bats",
-    "Bags",
-    "Helmets",
-    "Balls",
-    "Stumps",
-    "Shoes",
-    "Clothing",
-    "Accessories",
+    "T-Shirts",
+    "Hoodies",
+    "Shirts",
+    "Motivational Clothing",
+    "Anime Clothing",
+    "Sweatshirts",
   ];
 
   useEffect(() => {

@@ -12,11 +12,11 @@ import { Link } from "react-router-dom";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import img06 from "../../Image/Cricket-wepon/06.jpg";
-import img01 from "../../Image/Cricket-wepon/01.jpg";
+import img01 from "../../Image/Cricket-wepon/01.jpeg";
 import img2 from "../../Image/Cricket-wepon/img2.png";
 import img03 from "../../Image/Cricket-wepon/03.jpg";
 import img05 from "../../Image/Cricket-wepon/05.jpg";
-import img04 from "../../Image/Cricket-wepon/04.jpg";
+import img04 from "../../Image/Cricket-wepon/04.jpeg";
 
 const classes = {
   slide: {
@@ -84,39 +84,40 @@ const classes = {
 const slides = [
   {
     image: img06,
-    quote: "Gear up with the Latest Innovations and Dominate the Field like Never Before",
-    saleText: "Discover New Arrivals and stay ahead of the competition",
-    productText: "Explore",
+    quote: "Elevate Your Everyday.",
+    saleText: "Next Toppers Signature Black Hoodie — Crafted for Those Who Lead.",
+    productText: "Discover Collection",
   },
   {
     image: img01,
-    quote: "Gear up with the Latest Innovations and Dominate the Field like Never Before",
-    saleText: "Discover New Arrivals and stay ahead of the competition",
-    productText: "Explore",
+    quote: "Where Comfort Meets Prestige.",
+    saleText: "Premium Cotton T-Shirts Designed with Refined Simplicity.",
+    productText: "Explore Now",
   },
   {
     image: img2,
-    quote: "Unleash Your Passion for Cricket and Embrace the Thrill of the Game",
-    saleText: "Get in the game with up to 50% off on a wide range of cricket gear's",
-    productText: "Shop Now",
+    quote: "Minimal. Timeless. Exceptional.",
+    saleText: "Luxury Streetwear Inspired by Ambition and Excellence.",
+    productText: "View Collection",
   },
   {
     image: img03,
-    quote: "Experience the Unparalleled Excitement and Achieve Victory with Our Premium Cricket Equipment",
-    saleText: "Limited Time Offer: Don't miss out on the opportunity to upgrade your game",
-    productText: "Buy Now",
+    quote: "Made for the Modern Achiever.",
+    saleText: "Tailored Fit • Superior Fabric • Signature Finish.",
+    productText: "Shop Now",
+     
   },
   {
     image: img05,
-    quote: "Gear up with the Latest Innovations and Dominate the Field like Never Before",
-    saleText: "Discover New Arrivals and stay ahead of the competition",
-    productText: "Explore",
+    quote: "Statement in Every Detail.",
+    saleText: "The Next Toppers Hoodie — Limited Edition Winter Essential.",
+    productText: "Own It",
   },
   {
     image: img04,
-    quote: "Elevate Your Performance and Unleash Your True Cricketing Potential with Our Cutting-Edge Gear",
-    saleText: "New Arrivals: Enhance your skills and excel on the field",
-    productText: "Upgrade Now",
+    quote: "Designed to Be Remembered.",
+    saleText: "Exclusive Apparel for Those Who Define the Future.",
+    productText: "Enter Store",
   },
 ];
 

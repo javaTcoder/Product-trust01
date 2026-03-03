@@ -256,9 +256,9 @@ const ContactForm = () => {
             ProductTrust Store, Pvt Ltd.
           </span>
           <br />
-          15130 Sec 22
+          Saheb Abad Football Math, Dhapa, Kolkata
           <br />
-          Noida, UP 201301
+          Kolkata, West Bengal 700105
           <br />
           India
         </Address>
