@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
@@ -136,6 +137,18 @@ useEffect(() => {
 
   return (
     <>
+      <Helmet>
+        <title>{product?.name || "Product Details"} | Product Trust</title>
+        <meta name="description" content={product?.description ? product.description.slice(0, 155) : "Product on Product Trust"} />
+        <meta property="og:title" content={product?.name || "Product Trust"} />
+        <meta property="og:description" content={product?.description ? product.description.slice(0, 155) : "Browse verified products on Product Trust"} />
+        {product?.images?.[0]?.url && <meta property="og:image" content={product.images[0].url} />}
+        <meta property="og:url" content={`https://product-trust.onrender.com/product/${product?._id}`} />
+        <meta property="og:type" content="product" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={product?.name || "Product Trust"} />
+        <meta name="twitter:description" content={product?.description ? product.description.slice(0, 155) : "Browse verified products on Product Trust"} />
+      </Helmet>
       {loading ? (
         <CricketBallLoader />
       ) : (

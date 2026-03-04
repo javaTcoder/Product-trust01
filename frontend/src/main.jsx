@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import App from "./App";
 import store from "./store";
 
@@ -16,12 +17,14 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 
 root.render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
-        <App />
-        <ToastContainer position="bottom-center" autoClose={5000} />
-      </Provider>
-    </ThemeProvider>
-  </BrowserRouter>
+  <HelmetProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+          <ToastContainer position="bottom-center" autoClose={5000} />
+        </Provider>
+      </ThemeProvider>
+    </BrowserRouter>
+  </HelmetProvider>
 );
