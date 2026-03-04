@@ -1,15 +1,16 @@
 # robots.txt for Product Trust
-# Replace the Sitemap URL with your production domain before deploying.
 
 User-agent: *
 Allow: /
 
-# Block any private or admin paths if needed (adjust as appropriate)
-Disallow: /admin/
-Disallow: /api/
+# Public API endpoints allowed
+Allow: /api/v1/product
+Allow: /api/v1/review
 
-# Dynamic sitemap endpoint (mounted under /api/v1)
-Sitemap: https://product-trust.onrender.com/api/v1/sitemap.xml
+# Block private endpoints
+Disallow: /api/v1/admin
+Disallow: /api/v1/auth
+Disallow: /api/v1/payment
 
-# Legacy/static sitemap (optional fallback)
+# Dynamic sitemap endpoint
 Sitemap: https://product-trust.onrender.com/sitemap.xml
