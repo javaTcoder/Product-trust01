@@ -4,6 +4,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+ 
 // import GooglePlay from "../../../Image/Footer/google-play-black.svg";
 // import AppStore from "../../../Image/Footer/app-store-black.svg";
 import logo from "../../../Image/Footer/logo.png";
@@ -106,26 +108,35 @@ const footMenu = [
 ];
 
  const footSocial = [
-   {
+
+  {
      id: 1,
-     icon: <FacebookIcon className="facebook_icon" fontSize="large" />,
-     path: "https://www.instagram.com/iam_nightbot/",
+     icon: <WhatsAppIcon className="whatsapp_icon" fontSize="large" />,
+     path: "https://wa.me/918240442051",
    },
    {
      id: 2,
-     icon: <TwitterIcon className="twitter_icon" fontSize="large" />,
-     path: "https://twitter.com/Iam_DEv22",
+     icon: <FacebookIcon className="facebook_icon" fontSize="large" />,
+     path: "https://www.facebook.com/profile.php?id=61586545654195",
+     
    },
    {
      id: 3,
-     icon: <InstagramIcon className="insta_icon" fontSize="large" />,
-     path: "https://www.instagram.com/cricket_weapon_store17",
+     icon: <TwitterIcon className="twitter_icon" fontSize="large" />,
+     path: "https://x.com/subhajeet_42078",
    },
    {
      id: 4,
+     icon: <InstagramIcon className="insta_icon" fontSize="large" />,
+     path: "https://www.instagram.com/product_trust_?utm_source=qr&igsh=MXBlNDIyaXdyeTJmdQ%3D%3D",
+   },
+   {
+     id: 5,
      icon: <LinkedInIcon className="likedin_icon" fontSize="large" />,
      path: "https://www.linkedin.com/in/iam-devesh/",
    },
+   
+
  ];
 
 
