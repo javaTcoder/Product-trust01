@@ -8,8 +8,8 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-# Dynamic Sitemap with all products
-Sitemap: https://product-trust.onrender.com/api/v1/product/sitemap.xml
+# Dynamic sitemap endpoint (mounted under /api/v1)
+Sitemap: https://product-trust.onrender.com/api/v1/sitemap.xml
 
-# Sitemap (update to your real domain)
+# Legacy/static sitemap (optional fallback)
 Sitemap: https://product-trust.onrender.com/sitemap.xml
