@@ -24,6 +24,9 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import InfoIcon from "@mui/icons-material/Info";
+import CloseIcon from "@mui/icons-material/Close";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Navbar from "./Navbar";
 
 function NewProduct() {
@@ -58,6 +61,7 @@ function NewProduct() {
   };
 
   const categories = [
+    "Clothing",
     "T-Shirts",
     "Hoodies",
     "Shirts",
@@ -104,18 +108,39 @@ function NewProduct() {
 
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
-    setImagesPreview([]);
-
-    files.forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.readyState === 2) {
-          const dataUrl = reader.result;
-          setImagesPreview((old) => [...old, dataUrl]);
-        }
-      };
-      reader.readAsDataURL(file);
+    const promises = files.map((file) => {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (reader.readyState === 2) {
+            resolve(reader.result);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
     });
+
+    Promise.all(promises).then((dataUrls) => {
+      setImagesPreview(dataUrls);
+    });
+  };
+
+  const deleteImage = (index) => {
+    setImagesPreview(imagesPreview.filter((_, i) => i !== index));
+  };
+
+  const moveImageUp = (index) => {
+    if (index === 0) return;
+    const newImages = [...imagesPreview];
+    [newImages[index], newImages[index - 1]] = [newImages[index - 1], newImages[index]];
+    setImagesPreview(newImages);
+  };
+
+  const moveImageDown = (index) => {
+    if (index === imagesPreview.length - 1) return;
+    const newImages = [...imagesPreview];
+    [newImages[index], newImages[index + 1]] = [newImages[index + 1], newImages[index]];
+    setImagesPreview(newImages);
   };
 
   return (
@@ -345,6 +370,8 @@ function NewProduct() {
                                 borderRadius: "8px",
                                 overflow: "hidden",
                                 boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.1)",
+                                position: "relative",
+                                group: "img",
                               }}
                             >
                               <img
@@ -356,6 +383,71 @@ function NewProduct() {
                                   objectFit: "cover",
                                 }}
                               />
+                              {/* Image Controls */}
+                              <Box
+                                sx={{
+                                  position: "absolute",
+                                  top: 0,
+                                  left: 0,
+                                  right: 0,
+                                  bottom: 0,
+                                  backgroundColor: "rgba(0, 0, 0, 0.6)",
+                                  display: "flex",
+                                  flexDirection: "column",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  gap: "0.5rem",
+                                  opacity: 0,
+                                  transition: "opacity 0.3s ease",
+                                  "&:hover": {
+                                    opacity: 1,
+                                  },
+                                }}
+                              >
+                                <Box sx={{ display: "flex", gap: "0.5rem" }}>
+                                  <Button
+                                    size="small"
+                                    variant="contained"
+                                    onClick={() => moveImageUp(index)}
+                                    disabled={index === 0}
+                                    sx={{
+                                      backgroundColor: "white",
+                                      color: "#414141",
+                                      "&:hover": { backgroundColor: "#ed1c24", color: "white" },
+                                      "&:disabled": { backgroundColor: "#ccc" },
+                                    }}
+                                  >
+                                    <KeyboardArrowUpIcon sx={{ fontSize: "1.2rem" }} />
+                                  </Button>
+                                  <Button
+                                    size="small"
+                                    variant="contained"
+                                    onClick={() => moveImageDown(index)}
+                                    disabled={index === imagesPreview.length - 1}
+                                    sx={{
+                                      backgroundColor: "white",
+                                      color: "#414141",
+                                      "&:hover": { backgroundColor: "#ed1c24", color: "white" },
+                                      "&:disabled": { backgroundColor: "#ccc" },
+                                    }}
+                                  >
+                                    <KeyboardArrowDownIcon sx={{ fontSize: "1.2rem" }} />
+                                  </Button>
+                                </Box>
+                                <Button
+                                  size="small"
+                                  variant="contained"
+                                  onClick={() => deleteImage(index)}
+                                  sx={{
+                                    backgroundColor: "#ed1c24",
+                                    color: "white",
+                                    "&:hover": { backgroundColor: "#fff", color: "#ed1c24" },
+                                  }}
+                                >
+                                  <CloseIcon sx={{ fontSize: "1.2rem" }} />
+                                  Delete
+                                </Button>
+                              </Box>
                             </Box>
                           ))}
                         </Box>
