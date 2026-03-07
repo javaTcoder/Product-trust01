@@ -10,7 +10,6 @@ import "./FeatureSlider.css";
 import { Link } from "react-router-dom";
 import {
   dispalyMoney,
-  generateDiscountedPrice,
 } from "../DisplayMoney/DisplayMoney";
 const FeaturedSlider = ({ products }) => {
   //console.log("FeaturedSlider received products:", products);
@@ -54,9 +53,10 @@ const FeaturedSlider = ({ products }) => {
       className="featured_swiper"
     >
       {products.map((product) => {
-        const { _id, images, name ,price  } = product;
-        let newPrice = generateDiscountedPrice(price);
-        newPrice = dispalyMoney(newPrice);
+        const { _id, images, name, price, discountPercentage } = product;
+        const discountPct = discountPercentage || 0;
+        const finalPrice = price * (1 - discountPct / 100);
+        const newPrice = dispalyMoney(finalPrice);
         const oldPrice = dispalyMoney(price);
 
         return (
